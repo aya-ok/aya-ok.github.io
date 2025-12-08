@@ -203,6 +203,45 @@
         flex-wrap: wrap;
       }
     }
+/* ▼ Google翻訳ボタンをデザインに合わせる */
+.translate-widget {
+  position: absolute;
+  top: 18px;
+  right: 24px;   /* 右上に配置 */
+  left: auto;
+  font-size: 11px;
+  z-index: 10;
+}
+
+/* ラベルや文字色を全体デザインになじませる */
+#google_translate_element .goog-te-gadget {
+  font-family: inherit;
+  color: #9ad2ff;
+}
+
+/* ドロップダウンをネイビーの丸ボタン風に */
+#google_translate_element select {
+  background: rgba(10, 20, 55, 0.9);
+  color: #f5f7ff;
+  border-radius: 999px;
+  border: 1px solid rgba(146, 182, 255, 0.75);
+  padding: 4px 28px 4px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* 開いたときの候補リスト */
+#google_translate_element select option {
+  background: #020308;
+  color: #f5f7ff;
+}
+
+/* 「Powered by Google」の文字を少しだけ控えめに */
+#google_translate_element .goog-logo-link,
+#google_translate_element .goog-te-gadget span {
+  color: #6e83b5 !important;
+}
 
     .island-card {
       width: 170px;
