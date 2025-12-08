@@ -1,23 +1,158 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>SelfMap Portal</title>
-<meta name="description" content="SelfMap Teensは高校生・大学生のための自己理解RPGです。未来・願い・不安・価値観を整理することをサポートします。">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>SelfMap Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SelfMap Teens は、自分のこと・未来・なりたい大人像・願い・不安をゆっくり言葉にしていくための、ひとり用RPGノートです。">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+                   "Hiragino Sans", "Noto Sans JP", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #314f7c 0%, #050812 55%, #020308 100%);
+      color: #f5f7ff;
+    }
+
+    .card {
+      max-width: 760px;
+      width: 90%;
+      padding: 48px 32px 40px;
+      background: radial-gradient(circle at top, rgba(82, 133, 220, 0.38), rgba(7, 13, 30, 0.96));
+      border-radius: 28px;
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.04);
+      text-align: center;
+      backdrop-filter: blur(18px);
+    }
+
+    .title {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .subtitle-en {
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9fc4ff;
+      margin-bottom: 4px;
+    }
+
+    .subtitle-ja {
+      font-size: 0.95rem;
+      color: #c8d6ff;
+      margin-bottom: 28px;
+    }
+
+    .quote {
+      font-size: 0.95rem;
+      color: #e9f1ff;
+      margin-bottom: 2px;
+    }
+
+    .quote-author {
+      font-size: 0.85rem;
+      color: #9fb2e6;
+      margin-bottom: 28px;
+    }
+
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: #e4ecff;
+      margin-bottom: 32px;
+    }
+
+    .button-main {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 14px 40px;
+      border-radius: 999px;
+      border: none;
+      background: radial-gradient(circle at top, #65d8ff, #1ca4ff 45%, #0083ff 100%);
+      box-shadow:
+        0 12px 30px rgba(0, 135, 255, 0.55),
+        0 0 10px rgba(132, 219, 255, 0.9);
+      color: #01213a;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+    }
+
+    .button-main:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      box-shadow:
+        0 18px 40px rgba(0, 135, 255, 0.7),
+        0 0 14px rgba(160, 235, 255, 1);
+    }
+
+    .button-main:active {
+      transform: translateY(1px);
+      box-shadow:
+        0 10px 22px rgba(0, 135, 255, 0.5),
+        0 0 8px rgba(128, 214, 255, 0.9);
+    }
+
+    .sub-links {
+      margin-top: 28px;
+      font-size: 0.85rem;
+      color: #a6b6e8;
+    }
+
+    .sub-links a {
+      color: #a6c8ff;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(166, 200, 255, 0.6);
+      padding-bottom: 1px;
+    }
+
+    .sub-links a:hover {
+      color: #d2e4ff;
+      border-bottom-style: solid;
+    }
+  </style>
 </head>
 
 <body>
-<h1>SelfMap Portal</h1>
-<p>ようこそ！SelfMap Teens への入口ページです。</p>
+  <div class="card">
+    <div class="subtitle-en">SelfMap Portal</div>
+    <h1 class="title">SelfMap Teens</h1>
 
-<p>
-<a href="selfmap-teens/index.html">→ SelfMap Teens をひらく</a>
-</p>
+    <div class="subtitle-en">Know your inner world.</div>
+    <div class="subtitle-ja">あなたの内側を知る旅の入り口</div>
 
-<p>
-<a href="privacy.html">プライバシーポリシーはこちら</a>
-</p>
+    <p class="quote">「千里の道も、一歩から。」</p>
+    <p class="quote-author">―― 老子</p>
 
+    <p class="description">
+      このページは、SelfMap Teens への入口です。<br>
+      SelfMap Teens は、「自分のこと・未来・なりたい大人像・願い・不安」を、<br>
+      ゆっくり言葉にしていくための、ひとり用RPGノートです。
+    </p>
+
+    <a class="button-main" href="selfmap-teens/index.html">
+      旅を始める（Start Your Journey）
+    </a>
+
+    <div class="sub-links">
+      <p><a href="privacy.html">プライバシーポリシーはこちら</a></p>
+    </div>
+  </div>
 </body>
 </html>
