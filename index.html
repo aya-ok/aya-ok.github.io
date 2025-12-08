@@ -1,281 +1,79 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <!-- ページ基本設定 -->
     <meta charset="UTF-8" />
-  <title>SelfMap Teens</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6782796996557582"
-crossorigin="anonymous"></script>
+    <title>SelfMap Teens | あなたの内側を知る旅</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    /* ====== 全体レイアウト・テーマ ====== */
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2a3a 0, #050810 60%, #020308 100%);
-      color: #f5f7ff;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-    main {
-      width: 100%;
-      max-width: 960px;
-      margin: 32px 16px 64px;
-    }
-    h1, h2, h3 {
-      margin: 0 0 16px;
-      text-align: center;
-    }
-    p {
-      line-height: 1.7;
-    }
-    .center {
-      text-align: center;
-    }
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6782796996557582"
+        crossorigin="anonymous"></script>
 
-    /* ====== 画面切り替え ====== */
-    .screen {
-      display: none;
-      padding: 24px;
-      border-radius: 16px;
-      background: rgba(10, 16, 28, 0.85);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-    .screen.active {
-      display: block;
-    }
+    <!-- SEO対策 -->
+    <meta name="description" content="SelfMap Teens は、自分の内面を言語化し、未来の不安・願い・目標を整理するための自己認識RPGノートです。高校生・大学生・社会人がひとりで心を整えられるデジタル内省ツール。">
+    <meta name="keywords" content="自己分析, 内省, メンタルケア, 成長記録, 自己認識, 自己理解, 自己肯定感, 学生, 大学生, 高校生, ライフデザイン, 将来が不安">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aya-ok.github.io">
 
-    /* ====== 共通ボタン ====== */
-    .btn {
-      display: inline-block;
-      padding: 10px 22px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.2s ease;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #3cc9ff, #38f3d3);
-      color: #02131e;
-      box-shadow: 0 8px 25px rgba(8, 209, 255, 0.45);
-    }
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 35px rgba(8, 209, 255, 0.7);
-    }
-    .btn-secondary {
-      background: transparent;
-      color: #c5d7ff;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-    }
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.04);
-    }
-    .btn-small {
-      padding: 6px 14px;
-      font-size: 12px;
-    }
+    <!-- OGP（SNS共有用） -->
+    <meta property="og:title" content="SelfMap Teens | あなたの内側を知る旅">
+    <meta property="og:description" content="自己理解・未来設計・内省に特化したひとり用RPGノート。高校生・大学生・社会人のための内面整理ツール。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aya-ok.github.io">
+    <meta property="og:image" content="https://aya-ok.github.io/ogp.png">
 
-    /* ====== スタート画面 ====== */
-    .start-card {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 32px 24px;
-      border-radius: 18px;
-      background: radial-gradient(circle at top, rgba(74, 145, 255, 0.28), rgba(5, 10, 25, 0.9));
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      text-align: center;
-    }
-    .subtitle {
-      font-size: 14px;
-      color: #9fb4ff;
-      margin-bottom: 16px;
-    }
-    .quote {
-      font-style: italic;
-      font-size: 14px;
-      margin-bottom: 12px;
-      color: #d9e4ff;
-    }
-    .quote small {
-      display: block;
-      margin-top: 4px;
-      opacity: 0.8;
-    }
+    <meta name="twitter:card" content="summary_large_image">
 
-    /* ====== マップ画面（島カード） ====== */
-    .map-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 16px;
-      margin-top: 16px;
-    }
-    .island-card {
-      background: radial-gradient(circle at top, rgba(53, 120, 255, 0.35), rgba(7, 13, 30, 0.95));
-      border-radius: 16px;
-      padding: 16px 14px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, border 0.12s ease;
-    }
-    .island-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
-      border-color: rgba(103, 228, 255, 0.65);
-    }
-    .island-name-en {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #a8c4ff;
-      margin-bottom: 4px;
-    }
-    .island-name-ja {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    .island-desc {
-      font-size: 12px;
-      color: #d0dcff;
-      min-height: 32px;
-    }
-    .progress-pill {
-      margin-top: 10px;
-      font-size: 11px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(5, 15, 40, 0.9);
-      border: 1px solid rgba(116, 197, 255, 0.6);
-      color: #cfe6ff;
-    }
-    .progress-bar-outer {
-      margin-top: 8px;
-      height: 5px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      overflow: hidden;
-    }
-    .progress-bar-inner {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #3cc9ff, #4dffb0);
-      transition: width 0.2s ease;
-    }
+    <!-- 世界対応（自動翻訳ウィジェット） -->
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ja',
+                includedLanguages: 'en,zh-CN,ko,fr,es,vi,th',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    /* ====== 質問画面 ====== */
-    .questions-header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-    .questions-subtitle {
-      font-size: 13px;
-      color: #a8c4ff;
-    }
-    #questions-list {
-      margin-top: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .question-block {
-      padding: 12px 12px 8px;
-      border-radius: 12px;
-      background: rgba(8, 14, 30, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .question-label {
-      font-size: 13px;
-      margin-bottom: 4px;
-    }
-    .question-help {
-      font-size: 11px;
-      opacity: 0.7;
-      margin-bottom: 6px;
-    }
-    textarea {
-      width: 100%;
-      min-height: 60px;
-      resize: vertical;
-      padding: 8px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(5, 10, 22, 0.95);
-      color: #f5f7ff;
-      font-size: 13px;
-      font-family: inherit;
-    }
-    textarea:focus {
-      outline: none;
-      border-color: #46d4ff;
-      box-shadow: 0 0 0 1px rgba(70, 212, 255, 0.4);
-    }
+    <!-- 表示速度改善 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    .questions-footer {
-      margin-top: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .progress-label {
-      font-size: 12px;
-      color: #cfe6ff;
-    }
+    <!-- ここからデザインのCSS -->
+    <style>
+        /* ====== 全体レイアウト・テーマ ====== */
+        * {
+            box-sizing: border-box;
+        }
 
-    /* ====== まとめ画面 ====== */
-    .summary-section {
-      margin-top: 16px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-    }
-    .summary-section h3 {
-      text-align: left;
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-    .summary-list {
-      font-size: 12px;
-      color: #dde7ff;
-      line-height: 1.7;
-    }
-    .summary-list li {
-      margin-bottom: 4px;
-    }
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #1f2a3a 0%, #050810 60%, #020308 100%);
+            color: #f5f7ff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
 
-    /* ====== 小さい画面対応 ====== */
-    @media (max-width: 600px) {
-      main {
-        margin: 16px 8px 32px;
-      }
-      .screen {
-        padding: 16px;
-      }
-      .start-card {
-        padding: 24px 16px;
-      }
-    }
-  </style>
+        main {
+            width: 100%;
+            max-width: 960px;
+            margin: 32px 16px 64px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0 0 16px;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
 <main>
   <!-- ====== スタート画面 ====== -->
