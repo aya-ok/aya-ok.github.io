@@ -1,218 +1,50 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- ページ基本設定 -->
-    <meta charset="UTF-8" />
+    <!-- 基本設定 -->
+    <meta charset="UTF-8">
     <title>SelfMap Teens | あなたの内側を知る旅</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6782796996557582"
-        crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>
 
     <!-- SEO対策 -->
-    <meta name="description" content="SelfMap Teens は、自分の内面を言語化し、未来の不安・願い・目標を整理するための自己認識RPGノートです。高校生・大学生・社会人がひとりで心を整えられるデジタル内省ツール。">
-    <meta name="keywords" content="自己分析, 内省, メンタルケア, 成長記録, 自己認識, 自己理解, 自己肯定感, 学生, 大学生, 高校生, ライフデザイン, 将来が不安">
+    <meta name="description" content="SelfMap Teens は、自分の内側を言語化し、未来の不安・願い・目標を整理するひとり用RPGノート。自己分析、メンタルケア、成長記録に最適。">
+    <meta name="keywords" content="自己分析,未来設計,メンタルケア,成長記録,ひとり用RPG,自己理解,自己認識,高校生,大学生,若者支援">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://aya-ok.github.io">
 
-    <!-- OGP（SNS共有用） -->
+    <!-- OGP (SNS共有用) -->
     <meta property="og:title" content="SelfMap Teens | あなたの内側を知る旅">
-    <meta property="og:description" content="自己理解・未来設計・内省に特化したひとり用RPGノート。高校生・大学生・社会人のための内面整理ツール。">
+    <meta property="og:description" content="自己理解・未来設計に特化したひとり用RPGノート。質問に答えていくだけで、自分の内側が地図になる。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aya-ok.github.io">
     <meta property="og:image" content="https://aya-ok.github.io/ogp.png">
 
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- 世界対応（自動翻訳ウィジェット） -->
+    <!-- Google翻訳ウィジェット（世界展開対応） -->
     <div id="google_translate_element"></div>
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'ja',
-                includedLanguages: 'en,zh-CN,ko,fr,es,vi,th',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                includedLanguages: 'en,zh-CN,zh-TW,ko,es,fr,de,hi,id,vi,th',
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
             }, 'google_translate_element');
         }
     </script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- 表示速度改善 -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- ここからデザインのCSS -->
-    >/* ===== 全体レイアウト・テーマ ===== */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, #1f2a3a 0, #050810 60%, #020308 100%);
-  color: #f5f7ff;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* ページ全体を包むカード */
-main {
-  width: 100%;
-  max-width: 960px;
-  margin: 32px 16px;
-  padding: 40px 32px 32px;
-  background: rgba(8, 12, 30, 0.96);
-  border-radius: 24px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
-}
-
-/* ヘッダー部分（SelfMap Teens） */
-h1 {
-  margin: 0 0 12px;
-  text-align: center;
-  font-size: 32px;
-  letter-spacing: 0.08em;
-}
-
-h2 {
-  margin: 32px 0 8px;
-  text-align: center;
-  font-size: 20px;
-  letter-spacing: 0.08em;
-}
-
-/* 英語サブタイトルなど */
-.small-subtitle {
-  text-align: center;
-  font-size: 13px;
-  opacity: 0.85;
-}
-
-/* 名言部分 */
-.quote {
-  margin: 16px 0 24px;
-  text-align: center;
-  font-size: 13px;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-/* 説明文 */
-.lead {
-  margin: 8px auto 24px;
-  max-width: 640px;
-  font-size: 14px;
-  line-height: 1.9;
-  text-align: center;
-}
-
-/* ボタン（旅を始める） */
-button,
-.start-button {
-  display: inline-block;
-  padding: 12px 32px;
-  border-radius: 999px;
-  border: none;
-  background: linear-gradient(135deg, #2ad0ff, #1cc0ff);
-  color: #041018;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
-  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
-}
-
-button:hover,
-.start-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
-  filter: brightness(1.05);
-}
-
-button:active,
-.start-button:active {
-  transform: translateY(0);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
-}
-
-/* ボタンを中央に */
-.button-row {
-  margin: 16px 0 8px;
-  text-align: center;
-}
-
-/* プライバシーポリシーのリンク */
-.legal-link {
-  margin-top: 12px;
-  text-align: center;
-  font-size: 12px;
-}
-
-.legal-link a {
-  color: #9ad2ff;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-/* SelfMap Ocean 以下のエリア */
-section,
-div {
-  /* 既存のレイアウトを壊さない程度にだけ */
-}
-
-.ocean-title {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 18px;
-  letter-spacing: 0.1em;
-}
-
-/* 島の一覧テーブルなどを読みやすく */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 16px;
-  background: rgba(10, 16, 40, 0.98);
-  color: #f5f7ff;
-}
-
-th,
-td {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 8px 10px;
-  font-size: 12px;
-}
-
-th {
-  background: rgba(22, 32, 70, 0.95);
-  font-weight: 600;
-}
-
-/* スマホ用のちょっとした調整 */
-@media (max-width: 600px) {
-  main {
-    padding: 32px 16px 24px;
-    margin: 16px 8px;
-  }
-
-  h1 {
-    font-size: 26px;
-  }
-
-  .lead {
-    font-size: 13px;
-  }
-
-  th,
-  td {
-    font-size: 11px;
-  }
-}
+    <!-- ここにあやののCSSを入れる（styleタグ） -->
+    <style>
+        /* ★ここにあやののデザインCSSを丸ごと貼るゾーン★ */
+    </style>
 
 </head>
+
 
 <body>
 <main>
