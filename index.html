@@ -5,7 +5,7 @@
   <title>SelfMap Teens | あなたの内側を知る旅</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google AdSense（自分のコードに差し替えOK） -->
+  <!-- Google AdSense（必要なら client を差し替え） -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX"
     crossorigin="anonymous"></script>
 
@@ -26,10 +26,7 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
-    /* ===== 全体レイアウト・テーマ ===== */
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -60,17 +57,9 @@
       letter-spacing: 0.08em;
     }
 
-    h1 {
-      font-size: 32px;
-    }
-
-    h2 {
-      font-size: 22px;
-    }
-
-    h3 {
-      font-size: 18px;
-    }
+    h1 { font-size: 32px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
 
     p {
       line-height: 1.8;
@@ -85,7 +74,27 @@
       margin-bottom: 24px;
     }
 
-    /* ===== ボタン ===== */
+    .start-title-sub {
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      opacity: 0.8;
+      margin-bottom: 6px;
+    }
+
+    .quote {
+      margin: 16px 0 24px;
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .quote small {
+      display: block;
+      margin-top: 4px;
+      opacity: 0.8;
+    }
+
     .btn-primary,
     .btn-secondary {
       display: inline-flex;
@@ -134,38 +143,9 @@
       flex-wrap: wrap;
     }
 
-    /* ===== 画面の切り替え ===== */
-    .screen {
-      display: none;
-    }
+    .screen { display: none; }
+    .screen.active { display: block; }
 
-    .screen.active {
-      display: block;
-    }
-
-    /* ===== スタート画面 ===== */
-    .start-title-sub {
-      text-align: center;
-      font-size: 13px;
-      letter-spacing: 0.16em;
-      opacity: 0.8;
-      margin-bottom: 6px;
-    }
-
-    .quote {
-      margin: 16px 0 24px;
-      text-align: center;
-      font-size: 13px;
-      opacity: 0.9;
-    }
-
-    .quote small {
-      display: block;
-      margin-top: 4px;
-      opacity: 0.8;
-    }
-
-    /* ===== Island 選択画面 ===== */
     .ocean-title {
       margin-top: 8px;
       text-align: center;
@@ -182,9 +162,7 @@
     }
 
     @media (max-width: 900px) {
-      .island-grid {
-        flex-wrap: wrap;
-      }
+      .island-grid { flex-wrap: wrap; }
     }
 
     .island-card {
@@ -235,11 +213,7 @@
       background: rgba(10, 18, 40, 0.95);
     }
 
-    /* ===== 質問画面 ===== */
-    .question-header {
-      text-align: center;
-      margin-bottom: 16px;
-    }
+    .question-header { text-align: center; margin-bottom: 16px; }
 
     .question-tagline {
       font-size: 13px;
@@ -247,9 +221,7 @@
       margin-top: 4px;
     }
 
-    .question-list {
-      margin-top: 24px;
-    }
+    .question-list { margin-top: 24px; }
 
     .question-block {
       margin-bottom: 20px;
@@ -299,7 +271,6 @@
       margin-top: 4px;
     }
 
-    /* ===== まとめ画面 ===== */
     .summary-lead {
       text-align: center;
       font-size: 13px;
@@ -343,15 +314,9 @@
       flex-wrap: wrap;
     }
 
-    .import-label {
-      cursor: pointer;
-    }
+    .import-label { cursor: pointer; }
+    .import-label input { display: none; }
 
-    .import-label input {
-      display: none;
-    }
-
-    /* ===== Google翻訳ウィジェット ===== */
     #translate-wrapper {
       position: absolute;
       top: 12px;
@@ -374,28 +339,47 @@
       font-size: 11px;
     }
 
-    #google_translate_element a {
-      display: none;
-    }
+    #google_translate_element a { display: none; }
 
-    /* スマホ用微調整 */
     @media (max-width: 600px) {
       main {
         margin: 16px 8px 32px;
         padding: 20px 16px 28px;
       }
+      h1 { font-size: 24px; }
+      .island-grid { gap: 12px; }
+      .island-card { width: calc(50% - 12px); }
+    }
 
-      h1 {
-        font-size: 24px;
+    @media print {
+      body {
+        background: #ffffff;
       }
-
-      .island-grid {
-        gap: 12px;
+      main {
+        box-shadow: none;
+        background: #ffffff;
+        color: #000000;
+        margin: 0;
+        border-radius: 0;
       }
-
-      .island-card {
-        width: calc(50% - 12px);
+      #translate-wrapper,
+      #btn-summary-back-map,
+      #btn-summary-back-start,
+      #btn-print,
+      #btn-save-image,
+      #btn-export-app-json,
+      #btn-export-json,
+      .import-label,
+      #btn-start,
+      #btn-back-to-start,
+      #btn-go-summary,
+      #btn-go-summary-from-start,
+      #btn-back-to-map,
+      #btn-go-summary-from-question {
+        display: none !important;
       }
+      .screen { display: none !important; }
+      #screen-summary { display: block !important; }
     }
   </style>
 </head>
@@ -405,14 +389,13 @@
       <div id="google_translate_element"></div>
     </div>
 
-    <!-- ===== スタート画面 ===== -->
+    <!-- スタート画面 -->
     <section id="screen-start" class="screen active">
       <div class="start-title-sub">SELFMap PORTAL</div>
       <h1>SelfMap Teens</h1>
       <p class="lead">KNOW YOUR INNER WORLD.<br />あなたの内側を知る旅の入口</p>
       <p class="quote">「千里の道も、一歩から。」<br /><small>—— 老子</small></p>
       <p class="lead">
-        このページは、SelfMap Teens への入口です。<br />
         SelfMap Teens は、「自分のこと・未来・なりたい大人像・願い・不安」を、<br />
         ゆっくり言葉にしていくための、ひとり用RPGノートです。
       </p>
@@ -420,11 +403,11 @@
         <button id="btn-start" class="btn-primary">旅を始める（Start Your Journey）</button>
       </div>
       <div class="center-buttons" style="margin-top: 16px;">
-        <a href="#screen-summary" id="btn-go-summary-from-start" class="btn-secondary">旅のまとめを見る</a>
+        <button id="btn-go-summary-from-start" class="btn-secondary">旅のまとめを見る</button>
       </div>
     </section>
 
-    <!-- ===== Island 選択画面 ===== -->
+    <!-- マップ画面 -->
     <section id="screen-map" class="screen">
       <h2>SelfMap Ocean</h2>
       <p class="ocean-title">
@@ -432,14 +415,13 @@
         すべての島で答え終わると、「旅のまとめ」が開きます。
       </p>
       <div id="island-grid" class="island-grid"></div>
-
       <div class="center-buttons">
         <button id="btn-back-to-start" class="btn-secondary">スタート画面に戻る</button>
         <button id="btn-go-summary" class="btn-secondary">旅のまとめを見る</button>
       </div>
     </section>
 
-    <!-- ===== 質問画面 ===== -->
+    <!-- 質問画面 -->
     <section id="screen-questions" class="screen">
       <div class="question-header">
         <div id="question-island-en" class="start-title-sub"></div>
@@ -454,7 +436,7 @@
       </div>
     </section>
 
-    <!-- ===== まとめ画面 ===== -->
+    <!-- まとめ画面 -->
     <section id="screen-summary" class="screen">
       <h2>旅のまとめ</h2>
       <p class="summary-lead">
@@ -474,12 +456,19 @@
       </table>
 
       <p class="summary-note">
-        ※ ここでは「どれくらい書けたか」をざっくり確認できます。<br />
-        ※ 書いた内容はブラウザの中（あなたの端末）だけに保存されます。
+        ※ 書いた内容はブラウザの中（あなたの端末）だけに保存されます。<br />
+        ※ 印刷・画像保存・JSONエクスポートで、他のアプリやPDFにも移せます。
       </p>
 
+      <!-- ここが「選んで使う」ゾーン -->
       <div class="summary-actions">
-        <button id="btn-export-json" class="btn-secondary">データをJSONで保存</button>
+        <button id="btn-print" class="btn-secondary">このページを印刷 / PDF保存</button>
+        <button id="btn-save-image" class="btn-secondary">画像として保存（PNG）</button>
+        <button id="btn-export-app-json" class="btn-secondary">アプリ用データを書き出す（JSON）</button>
+      </div>
+
+      <div class="summary-actions">
+        <button id="btn-export-json" class="btn-secondary">バックアップ用JSON保存</button>
         <label class="btn-secondary import-label">
           JSONから読み込む
           <input id="input-import-json" type="file" accept="application/json" />
@@ -493,7 +482,7 @@
     </section>
   </main>
 
-  <!-- Google 翻訳ウィジェット -->
+  <!-- Google 翻訳 -->
   <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement(
@@ -508,9 +497,11 @@
   </script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+  <!-- html2canvas（画像保存用） -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
   <!-- SelfMap Teens ロジック -->
   <script>
-    // ===== 設定 =====
     const STORAGE_KEY = "selfmap_teens_v1";
 
     const islands = [
@@ -661,15 +652,13 @@
       }
     ];
 
-    // ===== データ管理 =====
     function loadAnswers() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (!raw) return {};
         const obj = JSON.parse(raw);
         return typeof obj === "object" && obj !== null ? obj : {};
-      } catch (e) {
-        console.error(e);
+      } catch {
         return {};
       }
     }
@@ -677,31 +666,25 @@
     function saveAnswersObj(obj) {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
-      } catch (e) {
-        console.error(e);
-      }
+      } catch {}
     }
 
-    // ===== JSON エクスポート & インポート =====
-    function exportJson() {
+    function exportJsonBackup() {
       const raw = localStorage.getItem(STORAGE_KEY) || "{}";
       const blob = new Blob([raw], { type: "application/json" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
-
       const now = new Date();
       const y = now.getFullYear();
       const m = String(now.getMonth() + 1).padStart(2, "0");
       const d = String(now.getDate()).padStart(2, "0");
-
       a.href = url;
-      a.download = `selfmap_teens_${y}${m}${d}.json`;
+      a.download = `selfmap_teens_backup_${y}${m}${d}.json`;
       a.click();
-
       URL.revokeObjectURL(url);
     }
 
-    function importJson(file) {
+    function importJsonBackup(file) {
       const reader = new FileReader();
       reader.onload = () => {
         try {
@@ -714,15 +697,37 @@
           localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
           alert("データを読み込みました。ページを更新します。");
           location.reload();
-        } catch (e) {
-          console.error(e);
+        } catch {
           alert("JSONの読み込み中にエラーが発生しました。");
         }
       };
       reader.readAsText(file, "utf-8");
     }
 
-    // ===== 画面制御 =====
+    function buildAppJson(answersObj) {
+      const now = new Date().toISOString();
+      const payload = {
+        version: "1.0",
+        generatedAt: now,
+        locale: "ja",
+        islands: islands.map(island => {
+          const arr = answersObj[island.key] || [];
+          const cleaned = arr.map(v => (typeof v === "string" ? v : ""));
+          const answeredCount = cleaned.filter(v => v.trim() !== "").length;
+          return {
+            key: island.key,
+            title: island.en,
+            titleJa: island.jp,
+            description: island.desc,
+            totalQuestions: island.questions.length,
+            answeredCount,
+            answers: cleaned
+          };
+        })
+      };
+      return JSON.stringify(payload, null, 2);
+    }
+
     function showScreen(id) {
       document.querySelectorAll(".screen").forEach(s => {
         s.classList.toggle("active", s.id === id);
@@ -730,16 +735,13 @@
       window.scrollTo({ top: 0, behavior: "instant" });
     }
 
-    // ===== 初期化 =====
     document.addEventListener("DOMContentLoaded", () => {
       let answers = loadAnswers();
 
-      // islands に合わせて answers の形を整える
       islands.forEach(island => {
         if (!answers[island.key] || !Array.isArray(answers[island.key])) {
           answers[island.key] = new Array(island.questions.length).fill("");
         } else if (answers[island.key].length < island.questions.length) {
-          // 少なければ足す
           answers[island.key].length = island.questions.length;
           answers[island.key] = answers[island.key].map(v =>
             typeof v === "string" ? v : ""
@@ -748,7 +750,6 @@
       });
       saveAnswersObj(answers);
 
-      // ===== Island カード生成 =====
       const islandGrid = document.getElementById("island-grid");
       islands.forEach(island => {
         const card = document.createElement("div");
@@ -766,7 +767,6 @@
         islandGrid.appendChild(card);
       });
 
-      // ===== まとめテーブル生成 =====
       const summaryBody = document.getElementById("summary-body");
       islands.forEach(island => {
         const tr = document.createElement("tr");
@@ -781,14 +781,12 @@
         summaryBody.appendChild(tr);
       });
 
-      // ===== 進捗更新 =====
       function updateAllProgress() {
         islands.forEach(island => {
           const list = answers[island.key] || [];
           const answered = list.filter(v => v && v.trim() !== "").length;
           const total = island.questions.length;
           const percent = Math.round((answered / total) * 100);
-
           const progEl = document.getElementById(`progress-${island.key}`);
           if (progEl) {
             progEl.textContent = `進捗：${answered} / ${total} (${percent}%)`;
@@ -802,7 +800,6 @@
 
       updateAllProgress();
 
-      // ===== 質問画面 =====
       const questionListEl = document.getElementById("question-list");
       const qIslandEn = document.getElementById("question-island-en");
       const qIslandJp = document.getElementById("question-island-jp");
@@ -812,7 +809,6 @@
       function openIsland(key) {
         const island = islands.find(i => i.key === key);
         if (!island) return;
-
         qIslandEn.textContent = island.en;
         qIslandJp.textContent = island.jp;
         qTagline.textContent = island.tagline;
@@ -852,7 +848,7 @@
         showScreen("screen-questions");
       }
 
-      // ===== ナビゲーション =====
+      // ナビ
       document.getElementById("btn-start").addEventListener("click", () => {
         showScreen("screen-map");
       });
@@ -868,8 +864,7 @@
 
       document
         .getElementById("btn-go-summary-from-start")
-        .addEventListener("click", e => {
-          e.preventDefault();
+        .addEventListener("click", () => {
           updateAllProgress();
           showScreen("screen-summary");
         });
@@ -893,21 +888,64 @@
         .getElementById("btn-summary-back-start")
         .addEventListener("click", () => showScreen("screen-start"));
 
-      // ===== JSON ボタン =====
-      const exportBtn = document.getElementById("btn-export-json");
-      const importInput = document.getElementById("input-import-json");
-
-      exportBtn.addEventListener("click", () => {
-        exportJson();
+      // 印刷
+      document.getElementById("btn-print").addEventListener("click", () => {
+        updateAllProgress();
+        showScreen("screen-summary");
+        setTimeout(() => {
+          window.print();
+        }, 100);
       });
 
-      importInput.addEventListener("change", e => {
-        const file = e.target.files[0];
-        if (file) {
-          importJson(file);
-        }
-        e.target.value = "";
+      // 画像保存
+      document.getElementById("btn-save-image").addEventListener("click", () => {
+        updateAllProgress();
+        showScreen("screen-summary");
+        const target = document.getElementById("screen-summary");
+        setTimeout(() => {
+          html2canvas(target, { scale: 2 }).then(canvas => {
+            canvas.toBlob(blob => {
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = "selfmap_teens_summary.png";
+              a.click();
+              URL.revokeObjectURL(url);
+            });
+          });
+        }, 200);
       });
+
+      // アプリ用 JSON エクスポート
+      document
+        .getElementById("btn-export-app-json")
+        .addEventListener("click", () => {
+          const json = buildAppJson(answers);
+          const blob = new Blob([json], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "selfmap_teens_appdata.json";
+          a.click();
+          URL.revokeObjectURL(url);
+        });
+
+      // バックアップ JSON
+      document
+        .getElementById("btn-export-json")
+        .addEventListener("click", () => {
+          exportJsonBackup();
+        });
+
+      document
+        .getElementById("input-import-json")
+        .addEventListener("change", e => {
+          const file = e.target.files[0];
+          if (file) {
+            importJsonBackup(file);
+          }
+          e.target.value = "";
+        });
     });
   </script>
 </body>
