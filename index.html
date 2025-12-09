@@ -467,21 +467,7 @@
         <button id="btn-save-image" class="btn-secondary">画像として保存（PNG）</button>
         <button id="btn-export-app-json" class="btn-secondary">アプリ用データを書き出す（JSON）</button>
       </div>
-<div class="summary-actions">
-    <button id="btn-generate-app-code" class="btn-secondary">
-        アプリ移行コードを生成［CODE］
-    </button>
 
-    <div style="margin-top: 10px; text-align:center;">
-        <input id="input-app-code" type="text" 
-            placeholder="ここにコードを貼り付け" 
-            style="width: 260px; padding: 6px; border-radius: 8px; border: none;" />
-
-        <button id="btn-import-app-code" class="btn-secondary">
-            コードから読込［CODE→Web］
-        </button>
-    </div>
-</div>
 
       <div class="center-buttons" style="margin-top: 24px;">
         <button id="btn-summary-back-map" class="btn-secondary">マップに戻る</button>
@@ -662,30 +648,6 @@
     /* --------------------------------------------------------
    ★ アプリ移行コードを生成（CODE→アプリに貼る用）
 ---------------------------------------------------------*/
-function generateAppCode() {
-    const answers = loadAnswers();             // 全回答データを取得
-    const json = JSON.stringify(answers);      // JSON化
-    const base64 = btoa(unescape(encodeURIComponent(json)));  
-    prompt("このコードをコピーしてアプリに貼り付けてください：", base64);
-}
-
-/* --------------------------------------------------------
-   ★ アプリ移行コードを読み込む（アプリ → WEB）
----------------------------------------------------------*/
-function importAppCode() {
-    const code = document.getElementById("input-app-code").value.trim();
-    if (!code) return alert("コードを入力してください");
-
-    try {
-        const json = decodeURIComponent(escape(atob(code)));  
-        const obj = JSON.parse(json);          // JSONに戻す
-        saveAnswersObj(obj);                   // ローカル保存
-        alert("データを読み込みました！");
-        location.reload();
-    } catch (e) {
-        alert("コードが正しくありません");
-    }
-}
 
 
     function loadAnswers() {
@@ -932,9 +894,7 @@ function importAppCode() {
           window.print();
         }, 100);
       });
-      document.getElementById("btn-generate-app-code").addEventListener("click", generateAppCode);
-document.getElementById("btn-import-app-code").addEventListener("click", importAppCode);
-
+      
 
       // 画像保存
       document.getElementById("btn-save-image").addEventListener("click", () => {
