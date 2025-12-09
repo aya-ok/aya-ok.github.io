@@ -432,6 +432,7 @@
       <div id="question-list" class="question-list"></div>
       <div class="center-buttons">
         <button id="btn-back-to-map" class="btn-secondary">マップに戻る</button>
+        <button class="btn-secondary btn-save-island-image">この島を画像として保存（PNG）</button>
         <button id="btn-go-summary-from-question" class="btn-secondary">旅のまとめへ</button>
       </div>
     </section>
@@ -481,14 +482,6 @@
         </button>
     </div>
 </div>
-
-      <div class="summary-actions">
-        <button id="btn-export-json" class="btn-secondary">バックアップ用JSON保存</button>
-        <label class="btn-secondary import-label">
-          JSONから読み込む
-          <input id="input-import-json" type="file" accept="application/json" />
-        </label>
-      </div>
 
       <div class="center-buttons" style="margin-top: 24px;">
         <button id="btn-summary-back-map" class="btn-secondary">マップに戻る</button>
@@ -961,6 +954,21 @@ document.getElementById("btn-import-app-code").addEventListener("click", importA
           });
         }, 200);
       });
+      // 各島の質問画面を画像として保存
+document.querySelectorAll(".btn-save-island-image").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const target = document.getElementById("screen-questions");
+
+    html2canvas(target, { scale: 2 }).then(canvas => {
+      canvas.toBlob(blob => {
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "selfmap-island.png"; // 保存されるファイル名
+        a.click();
+        URL.revokeObjectURL(a.href);
+      });
+    });
+  });
 
       // アプリ用 JSON エクスポート
       document
